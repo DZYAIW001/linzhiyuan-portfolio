@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page="home">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>林知远 — 视觉设计师 · 品牌与界面</title>
+<meta name="description" content="林知远的个人作品集：八年视觉设计经验，专注品牌视觉识别与数字产品界面设计。">
+<meta name="theme-color" content="#ffffff">
+<script>
+  /* 防首屏闪白：在样式加载前决定主题 */
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:true,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'9fe0d0391ddb462aa90e1ad911d8eac5'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<!-- ============================ 顶部导航 ============================ -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="返回首页">
+      <span class="brand__mark" id="brand-initials">LZ</span>
+      <span id="brand-name">林知远</span>
+    </a>
+
+    <nav class="nav" id="nav-desktop" aria-label="主导航"></nav>
+
+    <div class="header__actions">
+      <button class="icon-btn theme-toggle" id="theme-toggle" type="button"
+              aria-label="切换深浅色主题" title="切换深浅色主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.4A8.6 8.6 0 1 1 9.6 3.5a7 7 0 0 0 10.9 10.9Z"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button"
+              aria-label="打开菜单" aria-expanded="false" aria-controls="nav-mobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="nav-mobile" data-open="false" aria-label="移动端导航"></nav>
+
+<main id="main">
+
+  <!-- ============================ 首屏 ============================ -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__grid">
+
+        <div class="hero__text">
+          <span class="eyebrow" id="hero-eyebrow">视觉设计师 · 品牌与界面</span>
+
+          <div class="hero__name">
+            <h1 class="display" id="hero-name">林知远</h1>
+            <p class="lead" id="hero-tagline"></p>
+          </div>
+
+          <div id="hero-intro" class="prose"></div>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="work.html">
+              查看作品集
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/>
+              </svg>
+            </a>
+            <a class="btn btn--ghost" href="#contact">联系我</a>
+          </div>
+
+          <div class="hero__meta" id="hero-stats"></div>
+        </div>
+
+        <div class="portrait" id="portrait"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 精选作品 ============================ -->
+  <section class="section" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow">Selected Work</span>
+          <h2 class="h2" id="featured-title">精选作品</h2>
+        </div>
+        <a class="btn btn--text" href="work.html">
+          全部作品
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h13M12.5 5.5 19 12l-6.5 6.5"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid--3" id="featured"></div>
+    </div>
+  </section>
+
+  <!-- ============================ 关于：技能 ============================ -->
+  <section class="section section--subtle" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow">About</span>
+          <h2 class="h2" id="about-title">技能与能力</h2>
+        </div>
+      </div>
+
+      <div class="skills reveal" id="skills"></div>
+    </div>
+  </section>
+
+  <!-- ============================ 经历 ============================ -->
+  <section class="section" aria-labelledby="exp-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-head__text">
+          <span class="eyebrow">Experience</span>
+          <h2 class="h2" id="exp-title">经历</h2>
+        </div>
+      </div>
+
+      <div class="timeline" id="experience"></div>
+    </div>
+  </section>
+
+  <!-- ============================ 联系 ============================ -->
+  <section class="section section--subtle" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact">
+        <div class="reveal">
+          <span class="eyebrow">Contact</span>
+          <h2 class="h2" style="margin: 14px 0 18px;">一起做点有意思的事</h2>
+          <p class="lead" style="margin-bottom: 28px;">
+            无论是品牌搭建、界面改版，还是想聊聊设计流程，都欢迎直接写信给我。
+          </p>
+          <a class="contact__mail" id="contact-mail" href="#"></a>
+        </div>
+
+        <div class="contact__list reveal" data-delay="1" id="contact-list"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ 页脚 ============================ -->
+<footer class="site-footer">
+  <div class="container">
+    <span id="footer-copy"></span>
+    <a class="to-top" href="#main">
+      回到顶部
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V6M5.5 12.5 12 6l6.5 6.5"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
