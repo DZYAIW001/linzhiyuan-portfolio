@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page="project">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>作品详情 — 林知远</title>
+<meta name="description" content="项目详情：背景、过程与结果。">
+<meta name="theme-color" content="#ffffff">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
+</script>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:true,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'9fe0d0391ddb462aa90e1ad911d8eac5'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="返回首页">
+      <span class="brand__mark" id="brand-initials">LZ</span>
+      <span id="brand-name">林知远</span>
+    </a>
+
+    <nav class="nav" id="nav-desktop" aria-label="主导航"></nav>
+
+    <div class="header__actions">
+      <button class="icon-btn theme-toggle" id="theme-toggle" type="button"
+              aria-label="切换深浅色主题" title="切换深浅色主题">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.4A8.6 8.6 0 1 1 9.6 3.5a7 7 0 0 0 10.9 10.9Z"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button"
+              aria-label="打开菜单" aria-expanded="false" aria-controls="nav-mobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="nav-mobile" data-open="false" aria-label="移动端导航"></nav>
+
+<main id="main">
+
+  <!-- 未找到作品时的兜底 -->
+  <section class="section" id="not-found" hidden>
+    <div class="container">
+      <div class="empty">
+        <h1 class="h2" style="margin-bottom: 12px;">没有找到这个项目</h1>
+        <p style="margin-bottom: 24px;">链接可能不完整，或者这个项目已经下线了。</p>
+        <a class="btn btn--primary" href="work.html">返回作品集</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 详情内容 -->
+  <div id="project-root" hidden>
+
+    <section class="detail-head">
+      <div class="container">
+        <div class="detail-head__inner">
+          <a class="back-link" href="work.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H6M11.5 5.5 5 12l6.5 6.5"/>
+            </svg>
+            返回作品集
+          </a>
+          <span class="eyebrow" id="p-category"></span>
+          <h1 class="detail-title" id="p-title"></h1>
+          <p class="lead" id="p-summary"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="detail-cover" id="p-cover"></div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container detail-body">
+        <aside class="spec" id="p-spec" aria-label="项目信息"></aside>
+        <div>
+          <div class="prose" id="p-body"></div>
+          <div class="gallery" id="p-gallery"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="pager" id="p-pager"></div>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span id="footer-copy"></span>
+    <a class="to-top" href="#main">
+      回到顶部
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V6M5.5 12.5 12 6l6.5 6.5"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/project.js"></script>
+</body>
+</html>
