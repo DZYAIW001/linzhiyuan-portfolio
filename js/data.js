@@ -227,12 +227,42 @@ const WORKS = [
    ========================================================================== */
 
 const PALETTES = {
-  indigo: { deep: "#4338ca", mid: "#6366f1", soft: "#c7d2fe", tint: "#eef2ff" },
-  amber: { deep: "#b45309", mid: "#f59e0b", soft: "#fde68a", tint: "#fffbeb" },
-  teal: { deep: "#0f766e", mid: "#14b8a6", soft: "#99f6e4", tint: "#f0fdfa" },
-  rose: { deep: "#be123c", mid: "#f43f5e", soft: "#fecdd3", tint: "#fff1f2" },
-  violet: { deep: "#6d28d9", mid: "#8b5cf6", soft: "#ddd6fe", tint: "#f5f3ff" },
-  slate: { deep: "#1e293b", mid: "#475569", soft: "#cbd5e1", tint: "#f8fafc" },
+  indigo: {
+    deep: "var(--cv-indigo-deep, #4338ca)",
+    mid: "var(--cv-indigo-mid, #6366f1)",
+    soft: "var(--cv-indigo-soft, #c7d2fe)",
+    tint: "var(--cv-indigo-tint, #eef2ff)",
+  },
+  amber: {
+    deep: "var(--cv-amber-deep, #b45309)",
+    mid: "var(--cv-amber-mid, #f59e0b)",
+    soft: "var(--cv-amber-soft, #fde68a)",
+    tint: "var(--cv-amber-tint, #fffbeb)",
+  },
+  teal: {
+    deep: "var(--cv-teal-deep, #0f766e)",
+    mid: "var(--cv-teal-mid, #14b8a6)",
+    soft: "var(--cv-teal-soft, #99f6e4)",
+    tint: "var(--cv-teal-tint, #f0fdfa)",
+  },
+  rose: {
+    deep: "var(--cv-rose-deep, #be123c)",
+    mid: "var(--cv-rose-mid, #f43f5e)",
+    soft: "var(--cv-rose-soft, #fecdd3)",
+    tint: "var(--cv-rose-tint, #fff1f2)",
+  },
+  violet: {
+    deep: "var(--cv-violet-deep, #6d28d9)",
+    mid: "var(--cv-violet-mid, #8b5cf6)",
+    soft: "var(--cv-violet-soft, #ddd6fe)",
+    tint: "var(--cv-violet-tint, #f5f3ff)",
+  },
+  slate: {
+    deep: "var(--cv-slate-deep, #1e293b)",
+    mid: "var(--cv-slate-mid, #475569)",
+    soft: "var(--cv-slate-soft, #cbd5e1)",
+    tint: "var(--cv-slate-tint, #f8fafc)",
+  },
 };
 
 let __coverSeq = 0;

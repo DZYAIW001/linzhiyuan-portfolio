@@ -236,31 +236,69 @@
     copy.textContent = "© " + year + " " + SITE.name + " · " + SITE.location + " · " + SITE.availability;
   }
 
-  /* --------------------------- 主题切换 --------------------------- */
-  function initTheme() {
-    var btn = $("#theme-toggle");
+  /* ----------------------- 外观：风格 + 主题 ----------------------- */
+  var STYLE_META = {
+    classic: { light: "#ffffff", dark: "#0b0b0c" },
+    paper: { light: "#f7f4ed", dark: "#f7f4ed" },
+    grid: { light: "#0a0a0b", dark: "#0a0a0b" },
+  };
+
+  function initAppearance() {
+    var root = document.documentElement;
     var meta = document.querySelector('meta[name="theme-color"]');
+    var styleBtns = document.querySelectorAll("[data-style-btn]");
+    var themeBtn = $("#theme-toggle");
+
+    function currentStyle() {
+      var v = root.getAttribute("data-style");
+      return v === "paper" || v === "grid" ? v : "classic";
+    }
 
     function syncMeta() {
       if (!meta) return;
-      var dark = document.documentElement.getAttribute("data-theme") === "dark";
-      meta.setAttribute("content", dark ? "#0b0b0c" : "#ffffff");
+      var pair = STYLE_META[currentStyle()] || STYLE_META.classic;
+      var dark = root.getAttribute("data-theme") === "dark";
+      meta.setAttribute("content", dark ? pair.dark : pair.light);
     }
 
+    function syncButtons() {
+      var cur = currentStyle();
+      for (var i = 0; i < styleBtns.length; i++) {
+        var b = styleBtns[i];
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-style-btn") === cur));
+      }
+    }
+
+    function setStyle(next) {
+      root.setAttribute("data-style", next);
+      try {
+        localStorage.setItem("style", next);
+      } catch (e) {}
+      syncButtons();
+      syncMeta();
+    }
+
+    syncButtons();
     syncMeta();
 
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var root = document.documentElement;
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try {
-        localStorage.setItem("theme", next);
-      } catch (e) {}
-      syncMeta();
-    });
+    for (var k = 0; k < styleBtns.length; k++) {
+      styleBtns[k].addEventListener("click", function () {
+        setStyle(this.getAttribute("data-style-btn"));
+      });
+    }
 
-    // 用户没手动选过时，跟随系统变化
+    if (themeBtn) {
+      themeBtn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try {
+          localStorage.setItem("theme", next);
+        } catch (e) {}
+        syncMeta();
+      });
+    }
+
+    // 用户没手动选过时跟随系统；纸感/网格自带基调，不受系统影响
     var mq = window.matchMedia("(prefers-color-scheme: dark)");
     var onChange = function (e) {
       var saved = null;
@@ -268,7 +306,8 @@
         saved = localStorage.getItem("theme");
       } catch (err) {}
       if (saved === "light" || saved === "dark") return;
-      document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+      if (currentStyle() !== "classic") return;
+      root.setAttribute("data-theme", e.matches ? "dark" : "light");
       syncMeta();
     };
     if (mq.addEventListener) mq.addEventListener("change", onChange);
@@ -354,7 +393,7 @@
     renderContacts();
     renderFooter();
 
-    initTheme();
+    initAppearance();
     initMobileNav();
     observeReveals();
   }

@@ -7,15 +7,22 @@
 <meta name="description" content="林知远的作品集：品牌视觉、界面设计、插画与空间导视项目。">
 <meta name="theme-color" content="#ffffff">
 <script>
+  /* 防首屏闪白：在样式加载前决定风格与主题 */
   (function () {
+    var root = document.documentElement;
     try {
+      var s = localStorage.getItem("style");
+      if (s !== "paper" && s !== "grid") s = "classic";
+      root.setAttribute("data-style", s);
+
       var t = localStorage.getItem("theme");
       if (t !== "light" && t !== "dark") {
         t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       }
-      document.documentElement.setAttribute("data-theme", t);
+      root.setAttribute("data-theme", t);
     } catch (e) {
-      document.documentElement.setAttribute("data-theme", "light");
+      root.setAttribute("data-style", "classic");
+      root.setAttribute("data-theme", "light");
     }
   })();
 </script>
@@ -56,6 +63,16 @@
     <nav class="nav" id="nav-desktop" aria-label="主导航"></nav>
 
     <div class="header__actions">
+
+      <div class="style-switch" role="group" aria-label="切换网站风格">
+        <button class="style-switch__btn" type="button" data-style-btn="classic" aria-pressed="true"
+                title="当前风格">经典</button>
+        <button class="style-switch__btn" type="button" data-style-btn="paper" aria-pressed="false"
+                title="东方人文 · 纸感编辑风">纸感</button>
+        <button class="style-switch__btn" type="button" data-style-btn="grid" aria-pressed="false"
+                title="暗色先锋 · 网格技术风">网格</button>
+      </div>
+
       <button class="icon-btn theme-toggle" id="theme-toggle" type="button"
               aria-label="切换深浅色主题" title="切换深浅色主题">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"

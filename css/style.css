@@ -39,6 +39,17 @@
   --font-sans: system-ui, -apple-system, "Inter", "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-display: var(--font-sans);
+  --font-title: KaiTi, "楷体", STKaiti, "Kaiti SC", "KaiTi_GB2312", serif;
+
+  /* 强调元素（精选标题 / 首屏主按钮）— 随风格切换 */
+  --title-accent: #d32f2f;
+  --cta-bg: #8b5a2b;
+  --cta-bg-hover: #734a23;
+  --cta-fg: #ffffff;
+  --cta-radius: 4px;
+
+  /* 封面调色板（经典风格不覆盖，data.js 里走 fallback 原色） */
 
   /* 动效 */
   --ease: cubic-bezier(0.22, 0.68, 0.24, 1);
@@ -65,6 +76,117 @@
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.62);
   --glow: radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.16), transparent 68%);
+  --title-accent: #ef5350;
+
+  color-scheme: dark;
+}
+
+/* --------------------------------------------------------------------------
+   1b. 风格 B —— 东方人文 · 纸感编辑风
+   -------------------------------------------------------------------------- */
+:root[data-style="paper"] {
+  --bg: #f7f4ed;
+  --bg-subtle: #efeae0;
+  --bg-elev: #fbf9f4;
+  --fg: #1c1a17;
+  --fg-muted: #6b6157;
+  --fg-faint: #9a9084;
+  --line: #dcd4c6;
+  --line-strong: #c6bba8;
+  --accent: #a8322d;
+  --accent-hover: #8e2823;
+  --accent-soft: rgba(168, 50, 45, 0.08);
+  --accent-fg: #f7f4ed;
+  --header-bg: rgba(247, 244, 237, 0.85);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --glow: radial-gradient(circle at 50% 50%, rgba(168, 50, 45, 0.06), transparent 68%);
+
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --radius-full: 0px;
+
+  --font-display: "Songti SC", "SimSun", "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-title: KaiTi, "楷体", STKaiti, "Kaiti SC", "KaiTi_GB2312", serif;
+
+  --title-accent: #a8322d;
+  --cta-bg: #a8322d;
+  --cta-bg-hover: #8e2823;
+  --cta-fg: #f7f4ed;
+  --cta-radius: 0px;
+
+  /* 封面调色板 —— 低饱和暖色，与纸感底子同一调性 */
+  --cv-indigo-deep: #3a4358; --cv-indigo-mid: #66708a;
+  --cv-indigo-soft: #c3c6cf; --cv-indigo-tint: #eae7df;
+  --cv-amber-deep: #6f4a1a; --cv-amber-mid: #a9762f;
+  --cv-amber-soft: #e0c79b; --cv-amber-tint: #f3ecdd;
+  --cv-teal-deep: #2c4f47; --cv-teal-mid: #4f7d72;
+  --cv-teal-soft: #b6c9c1; --cv-teal-tint: #e4eae4;
+  --cv-rose-deep: #6b3634; --cv-rose-mid: #9c5a58;
+  --cv-rose-soft: #d9b6b1; --cv-rose-tint: #f2e6e3;
+  --cv-violet-deep: #4a3a4c; --cv-violet-mid: #775f78;
+  --cv-violet-soft: #c9bcc4; --cv-violet-tint: #ece7e6;
+  --cv-slate-deep: #3d3a34; --cv-slate-mid: #6d675d;
+  --cv-slate-soft: #c4bfb5; --cv-slate-tint: #e9e6df;
+
+  --dur: 0.6s;
+
+  color-scheme: light;
+}
+
+/* --------------------------------------------------------------------------
+   1c. 风格 C —— 暗色先锋 · 网格技术风
+   -------------------------------------------------------------------------- */
+:root[data-style="grid"] {
+  --bg: #0a0a0b;
+  --bg-subtle: #101014;
+  --bg-elev: #121216;
+  --fg: #f2f2f5;
+  --fg-muted: #8a8a96;
+  --fg-faint: #63636e;
+  --line: #23232b;
+  --line-strong: #33333d;
+  --accent: #4ade80;
+  --accent-hover: #38c46a;
+  --accent-soft: rgba(74, 222, 128, 0.12);
+  --accent-fg: #0a0a0b;
+  --header-bg: rgba(10, 10, 11, 0.78);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --glow: radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.15), transparent 68%);
+
+  --radius-sm: 6px;
+  --radius: 6px;
+  --radius-lg: 8px;
+  --radius-full: 6px;
+
+  --font-display: var(--font-sans);
+  --font-title: var(--font-sans);
+
+  --title-accent: #4ade80;
+  --cta-bg: #4ade80;
+  --cta-bg-hover: #38c46a;
+  --cta-fg: #0a0a0b;
+  --cta-radius: 6px;
+
+  /* 封面调色板 —— 暗底 + 高亮几何，配近黑背景 */
+  --cv-indigo-deep: #a5b4fc; --cv-indigo-mid: #6366f1;
+  --cv-indigo-soft: #23233a; --cv-indigo-tint: #14141f;
+  --cv-amber-deep: #fbbf24; --cv-amber-mid: #d97706;
+  --cv-amber-soft: #2e2718; --cv-amber-tint: #1a1610;
+  --cv-teal-deep: #5eead4; --cv-teal-mid: #14b8a6;
+  --cv-teal-soft: #1c2e2a; --cv-teal-tint: #0f1a18;
+  --cv-rose-deep: #fda4af; --cv-rose-mid: #f43f5e;
+  --cv-rose-soft: #33191f; --cv-rose-tint: #1c1114;
+  --cv-violet-deep: #c4b5fd; --cv-violet-mid: #8b5cf6;
+  --cv-violet-soft: #291f38; --cv-violet-tint: #17131f;
+  --cv-slate-deep: #94a3b8; --cv-slate-mid: #64748b;
+  --cv-slate-soft: #22262e; --cv-slate-tint: #12141a;
+
+  --dur: 0.2s;
 
   color-scheme: dark;
 }
@@ -163,6 +285,7 @@ p {
    3. 排版
    -------------------------------------------------------------------------- */
 .display {
+  font-family: var(--font-display);
   font-size: clamp(2.4rem, 6.2vw, 4.25rem);
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -170,23 +293,22 @@ p {
 }
 
 .h2 {
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3.4vw, 2.25rem);
   line-height: 1.2;
   letter-spacing: -0.025em;
   font-weight: 600;
 }
 
-/* 首页「精选作品」标题：楷体 + 红色 + 字号加一号（只作用于这一处） */
+/* 首页「精选作品」标题：字体 / 颜色随风格与主题变化（只作用于这一处） */
 #featured-title {
-  font-family: KaiTi, "楷体", STKaiti, "Kaiti SC", "KaiTi_GB2312", serif;
-  color: #d32f2f;
+  font-family: var(--font-title);
+  color: var(--title-accent);
   font-size: clamp(1.8rem, 3.8vw, 2.5rem);
-}
-[data-theme="dark"] #featured-title {
-  color: #ef5350;
 }
 
 .h3 {
+  font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.35;
   letter-spacing: -0.015em;
@@ -323,15 +445,15 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-/* 首屏「查看作品集」按钮：长方形 + 褐色（只作用于首屏这一处，
+/* 首屏「查看作品集」按钮：颜色与圆角随风格切换（只作用于首屏这一处，
    不影响 project.html 的「返回作品集」） */
 .hero__cta .btn--primary {
-  background: #8b5a2b;
-  color: #ffffff;
-  border-radius: 4px;
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  border-radius: var(--cta-radius);
 }
 .hero__cta .btn--primary:hover {
-  background: #734a23;
+  background: var(--cta-bg-hover);
 }
 
 .btn--ghost {
@@ -1248,5 +1370,94 @@ p {
   body {
     color: #000;
     background: #fff;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. 风格切换器 & 风格专属微调
+   -------------------------------------------------------------------------- */
+
+.style-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.style-switch__btn {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--fg-muted);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.style-switch__btn:hover {
+  color: var(--fg);
+}
+
+.style-switch__btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+/* 纸感 / 网格自带明暗基调，隐藏太阳月亮按钮 */
+:root[data-style="paper"] .theme-toggle,
+:root[data-style="grid"] .theme-toggle {
+  display: none;
+}
+
+/* --- 纸感：标题字距放开，卡片只留墨线 --- */
+:root[data-style="paper"] .display,
+:root[data-style="paper"] .h2,
+:root[data-style="paper"] .h3 {
+  letter-spacing: 0.01em;
+}
+
+:root[data-style="paper"] .card:hover {
+  transform: none;
+  border-color: var(--fg);
+}
+
+:root[data-style="paper"] .card:hover .card__cover svg {
+  transform: none;
+}
+
+/* --- 网格：背景铺淡网格线，卡片悬停描边点亮 --- */
+:root[data-style="grid"] body {
+  background-image: linear-gradient(to right, #17171c 1px, transparent 1px),
+    linear-gradient(to bottom, #17171c 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+:root[data-style="grid"] .card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+:root[data-style="grid"] .card:hover .card__cover svg {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .style-switch__btn {
+    padding: 5px 7px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .style-switch {
+    padding: 2px;
+  }
+  .style-switch__btn {
+    padding: 5px 5px;
+    font-size: 0.68rem;
   }
 }
