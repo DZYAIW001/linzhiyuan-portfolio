@@ -313,6 +313,17 @@ p {
   box-shadow: var(--shadow-md);
 }
 
+/* 首屏「查看作品集」按钮：长方形 + 褐色（只作用于首屏这一处，
+   不影响 project.html 的「返回作品集」） */
+.hero__cta .btn--primary {
+  background: #8b5a2b;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.hero__cta .btn--primary:hover {
+  background: #734a23;
+}
+
 .btn--ghost {
   border-color: var(--line-strong);
   color: var(--fg);
