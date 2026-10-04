@@ -176,6 +176,16 @@ p {
   font-weight: 600;
 }
 
+/* 首页「精选作品」标题：楷体 + 红色 + 字号加一号（只作用于这一处） */
+#featured-title {
+  font-family: KaiTi, "楷体", STKaiti, "Kaiti SC", "KaiTi_GB2312", serif;
+  color: #d32f2f;
+  font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+}
+[data-theme="dark"] #featured-title {
+  color: #ef5350;
+}
+
 .h3 {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.35;
